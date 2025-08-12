@@ -1,0 +1,50 @@
+@TodojsAspire.ApiService_HostAddress = https://localhost:7415
+@ApiService_HostAddress = http://localhost:5566
+
+
+
+GET {{TodojsAspire.ApiService_HostAddress}}/Todo
+
+###
+
+POST {{TodojsAspire.ApiService_HostAddress}}/Todo
+Content-Type: application/json
+
+{
+  "title": "Sample Todo4",
+  "isComplete": false,
+  "position": 0
+}
+
+###
+
+@id=1
+PUT {{TodojsAspire.ApiService_HostAddress}}/Todo/{{id}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Updated Todo",
+  "isComplete": true,
+  "position": 20
+}
+
+###
+
+###
+
+POST {{TodojsAspire.ApiService_HostAddress}}/Todo/
+Content-Type: application/json
+
+{
+  "title": "Sample Todo no position",
+  "isComplete": false
+}
+###
+
+DELETE {{TodojsAspire.ApiService_HostAddress}}/Todo/{{id}}
+
+###
+
+POST {{TodojsAspire.ApiService_HostAddress}}/Todo/move-up/3
+###
