@@ -7,4 +7,9 @@ var apiService = builder.AddProject<Projects.TodojsAspire_ApiService>("apiservic
     .WithReference(db)
     .WithHttpHealthCheck("/health");
 
+builder.AddViteApp(name: "todo-frontend", workingDirectory: "../todo-frontend")
+    .WithReference(apiService)
+    .WaitFor(apiService)
+    .WithNpmPackageInstallation();
+
 builder.Build().Run();
